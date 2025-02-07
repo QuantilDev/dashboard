@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <img src="Logo.svg" alt="Logo" id="logo">
+        <h1>Sales Dashboard</h1>
+    
+        <!-- File Upload and Week Selector on the same line -->
+        <div class="flex-container">
+            <div class="selectors">
+                <label for="week">Select Week:</label>
+                <select id="week" onchange="updateDashboard()"></select>
+                <input type="file" id="excelFileInput" accept=".xls,.xlsx" onchange="loadExcel()" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sections Side by Side -->
+    <div class="horizontal-section-container">
+        <!-- Section 1: Strip, Pot, Herbs -->
+        <div class="category">
+            <h2>Strip</h2>
+            <div class="category-row">
+                <div class="card">
+                    <h3>Budget (To Date)</h3>
+                    <p id="strip-budget">0</p>
+                </div>
+                <div class="card2">
+                    <h3>Actual (To Date)</h3>
+                    <p id="strip-actual">0</p>
+                </div>
+                <div class="card">
+                    <h3>Cumulative Variance</h3>
+                    <p id="strip-variance">0</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category">
+            <h2>Pot</h2>
+            <div class="category-row">
+                <div class="card">
+                    <h3>Budget (To Date)</h3>
+                    <p id="pot-budget">0</p>
+                </div>
+                <div class="card2">
+                    <h3>Actual (To Date)</h3>
+                    <p id="pot-actual">0</p>
+                </div>
+                <div class="card">
+                    <h3>Cumulative Variance</h3>
+                    <p id="pot-variance">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Herbs</h2>
+            <div class="category-row">
+                <div class="card">
+                    <h3>Budget (To Date)</h3>
+                    <p id="herbs-budget">0</p>
+                </div>
+                <div class="card2">
+                    <h3>Actual (To Date)</h3>
+                    <p id="herbs-actual">0</p>
+                </div>
+                <div class="card">
+                    <h3>Cumulative Variance</h3>
+                    <p id="herbs-variance">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Sections Side by Side -->
+    <div class="horizontal-section-container">
+        <!-- Section 2: Previous Week -->
+        <div class="vertical-category-container">
+                <h2>Previous Week</h2>
+                <div class="category-row">
+                    <div class="card">
+                        <h3>Strip Budget</h3>
+                        <p id="prev-strip-budget">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Strip Actual</h3>
+                        <p id="prev-strip-actual">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Strip Orders Last Year</h3>
+                        <p id="prev-strip-orders-last-year">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Strip Orders This Year</h3>
+                        <p id="prev-strip-orders-this-year">0</p>
+                    </div>
+                </div>
+                <br>
+                <div class="category-row">
+                    <div class="card2">
+                        <h3>Pot Budget</h3>
+                        <p id="prev-pot-budget">0</p>
+                    </div>
+                    <div class="card2">
+                        <h3>Pot Actual</h3>
+                        <p id="prev-pot-actual">0</p>
+                    </div>
+                    <div class="card2">
+                        <h3>Pot Orders Last Year</h3>
+                        <p id="prev-pot-orders-last-year">0</p>
+                    </div>
+                    <div class="card2">
+                        <h3>Pot Orders This Year</h3>
+                        <p id="prev-pot-orders-this-year">0</p>
+                    </div>
+                </div>
+                <br>
+                <div class="category-row">
+                    <div class="card">
+                        <h3>Herbs Budget</h3>
+                        <p id="prev-herbs-budget">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Herbs Actual</h3>
+                        <p id="prev-herbs-actual">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Herbs Orders Last Year</h3>
+                        <p id="prev-herbs-orders-last-year">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Herbs Orders This Year</h3>
+                        <p id="prev-herbs-orders-this-year">0</p>
+                    </div>
+                </div>
+            </div>
+            
+        <br>
+
+       <!-- Section 3: This Week -->
+       <div class="vertical-category-container">
+        <h2>This Week</h2>
+        <div class="category-row">
+            <div class="card">
+                <h3>Strip Budget</h3>
+                <p id="this-week-strip-budget">0</p>
+            </div>
+            <div class="card">
+                <h3>Strip Availability</h3>
+                <p id="this-week-strip-availability">0</p>
+            </div>
+            <div class="card">
+                <h3>Strip Orders Last Year</h3>
+                <p id="this-week-strip-orders-last-year">0</p>
+            </div>
+        </div>
+        <br>
+        <div class="category-row">
+            <div class="card2">
+                <h3>Pot Budget</h3>
+                <p id="this-week-pot-budget">0</p>
+            </div>
+            <div class="card2">
+                <h3>Pot Availability</h3>
+                <p id="this-week-pot-availability">0</p>
+            </div>
+            <div class="card2">
+                <h3>Pot Orders Last Year</h3>
+                <p id="this-week-pot-orders-last-year">0</p>
+            </div>
+        </div>
+        <br>
+        <div class="category-row">
+            <div class="card">
+                <h3>Herbs Budget</h3>
+                <p id="this-week-herbs-budget">0</p>
+            </div>
+            <div class="card">
+                <h3>Herbs Availability</h3>
+                <p id="this-week-herbs-availability">0</p>
+            </div>
+            <div class="card">
+                <h3>Herbs Orders Last Year</h3>
+                <p id="this-week-herbs-orders-last-year">0</p>
+            </div>
+        </div>
+    </div>
+<script src="dashboard.js"></script>
+</body>
+</html>

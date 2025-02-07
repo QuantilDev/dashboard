@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0F0F0;
+}
+
+img#logo {
+    width: 10%;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #685D4B;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #685D4B;
+}
+
+.dashboard-container {
+    width: 99%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spacing between the two elements */
+    color: #685D4B;
+}
+
+.selectors {
+    text-align: center;
+    margin: 20px 0;
+    margin-left: 20px; /* Optional: Adjust margin for spacing */
+}
+
+label {
+    font-weight: bold;
+}
+
+select, input {
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Parent container for Previous Week and This Week */
+.horizontal-section-container {
+    display: flex;
+    justify-content: space-between; /* Space sections horizontally */
+    align-items: flex-start; /* Align sections to the top */
+    gap: 20px; /* Space between the sections */
+    flex-wrap: nowrap; /* Prevent sections from wrapping */
+    padding: 10px;
+    background-color: #F0F0F0;
+    width: 100%; /* Ensure the container stretches full width */
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+/* Individual sections: Previous Week and This Week */
+.vertical-category-container {
+    flex: 1; /* Equal width for both sections */
+    min-width: 45%; /* Prevent sections from shrinking below 45% */
+    max-width: 50%; /* Ensure consistent width for sections */
+    padding: 5px;
+    border: 1px solid #F0F0F0; /* Light gray border */
+    border-radius: 5px;
+    background-color: #F0F0F0; /* White background */
+    display: flex;
+    flex-direction: column; /* Stack items vertically within the section */
+    gap: 15px; /* Space between items within each section */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Responsive Layout for Smaller Screens */
+@media (max-width: 768px) {
+    .horizontal-section-container {
+        flex-direction: column; /* Stack sections vertically on smaller screens */
+    }
+    .vertical-category-container {
+        min-width: 100%; /* Sections take full width on smaller screens */
+    }
+}
+
+.category {
+    margin: 20px 0;
+}
+
+.category-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.category-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.card {
+    flex: 1; /* Allow cards to have equal width */
+    text-align: center;
+    padding: 10px;
+    background: #fd7e14;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.card2 {
+    flex: 1; /* Allow cards to have equal width */
+    text-align: center;
+    padding: 10px;
+    background: #fec44f;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.card2 h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #685D4B;
+}
+
+.card p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.card2 p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #685D4B;
+}
