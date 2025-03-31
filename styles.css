@@ -107,8 +107,8 @@ select, input {
     flex: 1; /* Allow cards to have equal width */
     text-align: center;
     padding: 10px;
-    background: #fd7e14;
-    border: 1px solid #ddd;
+    background: #095f45;
+    border: 1px solid #095f45;
     border-radius: 5px;
 }
 
@@ -116,8 +116,17 @@ select, input {
     flex: 1; /* Allow cards to have equal width */
     text-align: center;
     padding: 10px;
-    background: #fec44f;
-    border: 1px solid #ddd;
+    background: #ffffff;
+    border: 2.5px solid #ffffff;
+    border-radius: 5px;
+}
+
+.card3 {
+    flex: 1; /* Allow cards to have equal width */
+    text-align: center;
+    padding: 10px;
+    background: #F87B1F;
+    border: 1px solid #F87B1F;
     border-radius: 5px;
 }
 
@@ -130,7 +139,7 @@ select, input {
 .card2 h3 {
     font-size: 16px;
     margin-bottom: 8px;
-    color: #685D4B;
+    color: #000000;
 }
 
 .card p {
@@ -142,5 +151,17 @@ select, input {
 .card2 p {
     font-size: 18px;
     font-weight: bold;
-    color: #685D4B;
+    color: #000000;
+}
+
+.card3 h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.card3 p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
 }
